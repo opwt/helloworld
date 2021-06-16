@@ -180,6 +180,11 @@ if uci:get_first("shadowsocksr", 'global', 'adblock', '0') == '1' then
 	s.value = ad_count .. " " .. translate("Records")
 end
 
+if uci:get_first("shadowsocksr", 'global', 'pdnsd_enable', '0') == '1' then
+	s = m:field(DummyValue, "cache", translate("Reset pdnsd cache"))
+	s.template = "shadowsocksr/cache"
+end
+
 s = m:field(DummyValue, "check_port", translate("Check Server Port"))
 s.template = "shadowsocksr/checkport"
 s.value = translate("No Check")
